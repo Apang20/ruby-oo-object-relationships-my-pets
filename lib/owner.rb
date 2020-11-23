@@ -62,17 +62,19 @@ end
 end
 
 def sell_pets
-  sell_cat = Cat.all.select do |cat|
-    if cat.owner == self
+  #sell_cat = Cat.all.select do |cat|
+   # if cat.owner == self
+    self.cats.each do |cat|
     cat.mood = "nervous"
     cat.owner = nil
-    end
+    #end
   end
-  sell_dog = Dog.all.select do |dog|
-    if dog.owner == self
+  # sell_dog = Dog.all.select do |dog|
+  #   if dog.owner == self
+  self.dogs.each do |dog|
       dog.mood = "nervous"
       dog.owner = nil 
-    end
+    # end
   end
 
 end  
@@ -94,3 +96,4 @@ end
 
 #binding.pry 
 #0
+
